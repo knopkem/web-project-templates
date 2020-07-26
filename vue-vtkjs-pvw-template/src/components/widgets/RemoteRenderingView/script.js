@@ -21,9 +21,12 @@ export default {
     this.view = vtkRemoteView.newInstance({
       rpcWheelEvent: 'viewport.mouse.zoom.wheel',
     });
+    this.view.setInteractiveRatio(0.2);
+    this.view.setInteractiveQuality(50);
+
     // default of 0.5 causes 2x size labels on high-DPI screens. 1 good for demo, not for production.
     if (location.hostname.split('.')[0] === 'localhost') {
-      this.view.setInteractiveRatio(1);
+      // this.view.setInteractiveRatio(1);
     }
   },
   mounted() {
